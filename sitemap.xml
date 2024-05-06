@@ -2,6 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/Dubbo/</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/docker/</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/basic/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/error/%E4%BB%A3%E7%A0%81%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/code/jdk/</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/algo/%E6%A8%A1%E6%9D%BF/</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hideincode.github.io/2024/05/07/algo/%E7%BB%8F%E5%85%B8%E4%BE%8B%E9%A2%98/</loc>
     
     <lastmod>2024-05-06</lastmod>
@@ -12,15 +66,6 @@
   
   <url>
     <loc>https://hideincode.github.io/2024/05/07/algo/AC1337/</loc>
-    
-    <lastmod>2024-05-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://hideincode.github.io/2024/05/07/algo/%E6%A8%A1%E6%9D%BF/</loc>
     
     <lastmod>2024-05-06</lastmod>
     
@@ -56,6 +101,15 @@
   </url>
   
   <url>
+    <loc>https://hideincode.github.io/books/index.html</loc>
+    
+    <lastmod>2024-05-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://hideincode.github.io/about/index.html</loc>
     
     <lastmod>2024-05-06</lastmod>
@@ -74,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://hideincode.github.io/books/index.html</loc>
+    <loc>https://hideincode.github.io/repository/index.html</loc>
     
     <lastmod>2024-05-06</lastmod>
     
@@ -83,9 +137,189 @@
   </url>
   
   <url>
-    <loc>https://hideincode.github.io/repository/index.html</loc>
+    <loc>https://hideincode.github.io/2024/05/07/devops/k8s/</loc>
     
-    <lastmod>2024-05-06</lastmod>
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%85%8D%E7%BD%AE/</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/maven/</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/ngxin/</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/git/</loc>
+    
+    <lastmod>2023-11-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/linux/</loc>
+    
+    <lastmod>2023-11-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/devops/jenkins/</loc>
+    
+    <lastmod>2023-11-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/basic/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB%E4%B8%8E%E6%BC%8F%E6%B4%9E/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/code/spring/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/Spring/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/Redis/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/ElasticSearch/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/MQ/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/Zookeeper/</loc>
+    
+    <lastmod>2023-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/Mysql/</loc>
+    
+    <lastmod>2023-09-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/basic/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    
+    <lastmod>2023-09-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/basic/%E7%BD%91%E7%BB%9C/</loc>
+    
+    <lastmod>2023-09-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/system/MyBatis/</loc>
+    
+    <lastmod>2023-09-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/basic/%E5%B9%B6%E5%8F%91/</loc>
+    
+    <lastmod>2023-09-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/basic/JVM/</loc>
+    
+    <lastmod>2023-09-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/2024/05/07/error/%E6%9C%BA%E5%99%A8%E9%97%AE%E9%A2%98/</loc>
+    
+    <lastmod>2023-09-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -107,10 +341,73 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://hideincode.github.io/tags/design-pattern/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/tags/devops/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/tags/error/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/tags/system-design/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>https://hideincode.github.io/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://hideincode.github.io/categories/%E8%A7%A3%E9%A2%98%E6%8A%80%E5%B7%A7/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/categories/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/categories/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/categories/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</loc>
+    <lastmod>2024-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://hideincode.github.io/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/</loc>
     <lastmod>2024-05-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
