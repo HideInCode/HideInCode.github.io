@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://hideincode.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://hideincode.github.io/"/>
+  <updated>2024-05-06T17:17:44.853Z</updated>
+  <id>https://hideincode.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hello</title>
+    <link href="https://hideincode.github.io/2024/05/07/hello/"/>
+    <id>https://hideincode.github.io/2024/05/07/hello/</id>
+    <published>2024-05-06T17:17:44.000Z</published>
+    <updated>2024-05-06T17:17:44.853Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
