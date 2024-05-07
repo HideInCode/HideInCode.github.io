@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Spring | HideInCode</title>
+  <meta name="description" content="Spring为什么Spring? IOC进行松耦合与容器化管理对象，AOP进行业务和系统逻辑分开。 轻量，几兆而已。 事务处理能力：本地全局都可以进行统一事物管理。 异常处理：可以全局捕获运行时异常。 MVC进行web编程提高生产效率。  AOP的基本概念 切⾯（Aspect）：官⽅的抽象定义为“⼀个关注点的模块化，这个关注点可能会横切多个对象”。 连接点（Joinpoint）：程序执⾏过程中的某">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="https://hideincode.github.io/2021/07/05/system/Spring/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Spring为什么Spring? IOC进行松耦合与容器化管理对象，AOP进行业务和系统逻辑分开。 轻量，几兆而已。 事务处理能力：本地全局都可以进行统一事物管理。 异常处理：可以全局捕获运行时异常。 MVC进行web编程提高生产效率。  AOP的基本概念 切⾯（Aspect）：官⽅的抽象定义为“⼀个关注点的模块化，这个关注点可能会横切多个对象”。 连接点（Joinpoint）：程序执⾏过程中的某">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-07-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-05-07T08:57:21.902Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="system design">
+<meta name="twitter:card" content="summary">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://hideincode.github.io/2021/07/05/system/Spring/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/HideInCode" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">HideInCode</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Backend</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/HideInCode" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/">开发部署</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">源码分析</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%80%E5%B7%A7/">解题技巧</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/">问题排查</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JVM/" rel="tag">JVM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OS/" rel="tag">OS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algo/" rel="tag">algo</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/code/" rel="tag">code</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/design-pattern/" rel="tag">design pattern</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/devops/" rel="tag">devops</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/error/" rel="tag">error</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/safe/" rel="tag">safe</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socket/" rel="tag">socket</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/system-design/" rel="tag">system design</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/threads-concurrent/" rel="tag">threads, concurrent</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/JVM/" style="font-size: 13px;">JVM</a> <a href="/tags/OS/" style="font-size: 13px;">OS</a> <a href="/tags/algo/" style="font-size: 13.5px;">algo</a> <a href="/tags/code/" style="font-size: 13.25px;">code</a> <a href="/tags/design-pattern/" style="font-size: 13px;">design pattern</a> <a href="/tags/devops/" style="font-size: 14px;">devops</a> <a href="/tags/error/" style="font-size: 13px;">error</a> <a href="/tags/safe/" style="font-size: 13px;">safe</a> <a href="/tags/socket/" style="font-size: 13px;">socket</a> <a href="/tags/system-design/" style="font-size: 13.75px;">system design</a> <a href="/tags/threads-concurrent/" style="font-size: 13px;">threads, concurrent</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/11/">November 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">July 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">October 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/07/">July 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">May 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+              </p>
+              <p class="item-title">
+                <a href="/2024/05/01/basic/%E5%B8%B8%E8%A7%81%E6%94%BB%E5%87%BB%E4%B8%8E%E6%BC%8F%E6%B4%9E/" class="title">常见攻击与漏洞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2024-04-30T16:00:00.000Z" itemprop="datePublished">2024-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/">开发部署</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/11/11/devops/k8s/" class="title">K8S集群搭建</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-11-10T16:00:00.000Z" itemprop="datePublished">2023-11-11</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2/">开发部署</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/05/07/devops/docker/" class="title">Docker部署一些组件</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-05-06T16:00:00.000Z" itemprop="datePublished">2023-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+              </p>
+              <p class="item-title">
+                <a href="/2023/05/01/basic/%E5%B9%B6%E5%8F%91/" class="title">并发编程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2023-04-30T16:00:00.000Z" itemprop="datePublished">2023-05-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/%E8%A7%A3%E9%A2%98%E6%8A%80%E5%B7%A7/">解题技巧</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/08/algo/AC1337/" class="title">AC1337</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-07T16:00:00.000Z" itemprop="datePublished">2022-08-08</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-system/Spring" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Spring
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/07/05/system/Spring/" class="article-date">
+	  <time datetime="2021-07-04T16:00:00.000Z" itemprop="datePublished">2021-07-05</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">系统设计</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/system-design/" rel="tag">system design</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/07/05/system/Spring/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="为什么Spring"><a href="#为什么Spring" class="headerlink" title="为什么Spring?"></a>为什么Spring?</h2><ol>
+<li>IOC进行松耦合与容器化管理对象，AOP进行业务和系统逻辑分开。</li>
+<li>轻量，几兆而已。</li>
+<li>事务处理能力：本地全局都可以进行统一事物管理。</li>
+<li>异常处理：可以全局捕获运行时异常。</li>
+<li>MVC进行web编程提高生产效率。</li>
+</ol>
+<h2 id="AOP的基本概念"><a href="#AOP的基本概念" class="headerlink" title="AOP的基本概念"></a>AOP的基本概念</h2><ol>
+<li>切⾯（Aspect）：官⽅的抽象定义为“⼀个关注点的模块化，这个关注点可能会横切多个对象”。</li>
+<li>连接点（Joinpoint）：程序执⾏过程中的某⼀⾏为。 </li>
+<li>通知（Advice）：“切⾯”对于某个“连接点”所产⽣的动作。 </li>
+<li>切⼊点（Pointcut）：匹配连接点的断⾔，在 AOP 中通知和⼀个切⼊点表达式关联。</li>
+<li>⽬标对象（Target Object）：被⼀个或者多个切⾯所通知的对象。 </li>
+<li>AOP 代理（AOP Proxy）：在 Spring AOP 中有两种代理⽅式，JDK 动态代理和 CGLIB 代理。</li>
+</ol>
+<h2 id="通知类型有哪些？"><a href="#通知类型有哪些？" class="headerlink" title="通知类型有哪些？"></a>通知类型有哪些？</h2><ol>
+<li><p>前置通知（Before advice）：在某连接点（JoinPoint）之前执⾏的通知，但这个通知不能阻⽌连接点前的执 ⾏。ApplicationContext 中在 aop:aspect ⾥⾯使⽤ aop:before 元素进⾏声明； </p>
+</li>
+<li><p>后置通知（After advice）：当某连接点退出的时候执⾏的通知（不论是正常返回还是异常退出）。 ApplicationContext 中在 aop:aspect ⾥⾯使⽤ aop:after 元素进⾏声明。 </p>
+</li>
+<li><p>返回后通知（After return advice ：在某连接点正常完成后执⾏的通知，不包括抛出异常的情况。 ApplicationContext 中在 aop:aspect ⾥⾯使⽤ &lt;&gt; 元素进⾏声明。</p>
+</li>
+<li><p>环绕通知（Around advice）：包围⼀个连接点的通知，类似 Web 中 Servlet规范中的 Filter 的 doFilter ⽅ 法。可以在⽅法的调⽤前后完成⾃定义的⾏为，也可以选择不执⾏。ApplicationContext 中在 aop:aspect ⾥ ⾯使⽤ aop:around 元素进⾏声明。</p>
+</li>
+<li><p>抛出异常后通知（After throwing advice）：在⽅法抛出异常退出时执⾏的通知。ApplicationContext 中在 a op:aspect ⾥⾯使⽤ aop:after-throwing 元素进⾏声明</p>
+</li>
+</ol>
+<h2 id="Bean的生命周期"><a href="#Bean的生命周期" class="headerlink" title="Bean的生命周期"></a>Bean的生命周期</h2><ol>
+<li>Spring 启动，查找并加载需要被 Spring 管理的 Bean，进⾏ Bean 的实例化； </li>
+<li>Bean 实例化后，对 Bean 的引⼊和值注⼊到 Bean 的属性中； </li>
+<li>如果 Bean 实现了 BeanNameAware 接⼝的话，Spring 将 Bean 的 Id 传递给 setBeanName() ⽅法； </li>
+<li>如果 Bean 实现了 BeanFactoryAware 接⼝的话，Spring 将调⽤ setBeanFactory() ⽅法，将 BeanFactory 容器实例传⼊； </li>
+<li>如果 Bean 实现了 ApplicationContextAware 接⼝的话，Spring 将调⽤ Bean 的 setApplicationContext() ⽅ 法，将 Bean 所在应⽤上下⽂引⽤传⼊进来；</li>
+<li>如果 Bean 实现了 BeanPostProcessor 接⼝，Spring 就将调⽤它们的 postProcessBeforeInitialization() ⽅ 法； </li>
+<li>如果 Bean 实现了 InitializingBean 接⼝，Spring 将调⽤它们的 afterPropertiesSet() ⽅法。类似地，如果 Bean 使⽤ init-method 声明了初始化⽅法，该⽅法也会被调⽤； </li>
+<li>如果 Bean 实现了 BeanPostProcessor 接⼝，Spring 就将调⽤它们的 postProcessAfterInitialization() ⽅ 法； </li>
+<li>此时，Bean 已经准备就绪，可以被应⽤程序使⽤了。它们将⼀直驻留在应⽤上下⽂中，直到应⽤上下⽂被销 毁； </li>
+<li>如果 Bean 实现了 DisposableBean 接⼝，Spring 将调⽤它的 destory() 接⼝⽅法，同样，如果 Bean 使⽤了 destory-method 声明销毁⽅法，该⽅法也会被调⽤。</li>
+</ol>
+<h2 id="Bean的作用域"><a href="#Bean的作用域" class="headerlink" title="Bean的作用域"></a>Bean的作用域</h2><ol>
+<li>singleton : 唯⼀ bean 实例，Spring 中的 bean 默认都是单例的； </li>
+<li>prototype : 每次请求都会创建⼀个新的 bean 实例； </li>
+<li>request：每⼀次 HTTP 请求都会产⽣⼀个新的 bean，该 bean 仅在当前 HTTP request 内有效； </li>
+<li>session : 每⼀次 HTTP 请求都会产⽣⼀个新的 bean，该 bean 仅在当前 HTTP session 内有效； </li>
+<li>global-session：全局 session 作⽤域，仅仅在基于 portlet 的 web 应⽤中才有意义，Spring5 已经没有了。 Portlet 是能够⽣成语义代码(例如：HTML)⽚段的⼩型 Java Web 插件。它们基于 portlet 容器，可以像 servlet ⼀样处理 HTTP 请求。但是，与 servlet 不同，每个 portlet 都有不同的会话。</li>
+</ol>
+<h2 id="Spring的事物隔离级别"><a href="#Spring的事物隔离级别" class="headerlink" title="Spring的事物隔离级别"></a>Spring的事物隔离级别</h2><p>TransactionDefinition 接⼝中定义了五个表示隔离级别的常量： <strong>TransactionDefinition.ISOLATION_DEFAULT</strong>：使⽤后端数据库默认的隔离级别，MySQL 默认采⽤的 REPEATABLE_READ 隔离级别 Oracle 默认采⽤的 READ_COMMITTED 隔离级别； TransactionDefinition.ISOLATION_READ_UNCOMMITTED：最低的隔离级别，允许读取尚未提交的数据变更，可 能会导致脏读、幻读或不可᯿复读； <strong>TransactionDefinition.ISOLATION_READ_COMMITTED</strong>：允许读取并发事务已经提交的数据，可以阻⽌脏读，但 是幻读或不可᯿复读仍有可能发⽣； <strong>TransactionDefinition.ISOLATION_REPEATABLE_READ</strong>：对同⼀字段的多次读取结果都是⼀致的，除⾮数据是被 本身事务⾃⼰所修改，可以阻⽌脏读和不可᯿复读，但幻读仍有可能发⽣； </p>
+<p><strong>TransactionDefinition.ISOLATION_SERIALIZABLE</strong>：最⾼的隔离级别，完全服从 ACID 的隔离级别。所有的事务依 次逐个执⾏，这样事务之间就完全不可能产⽣⼲扰，也就是说，该级别可以防⽌脏读、不可᯿复读以及幻读。但是 这将严᯿影响程序的性能。通常情况下也不会⽤到该级别.</p>
+<h2 id="Spring的事物传播行为"><a href="#Spring的事物传播行为" class="headerlink" title="Spring的事物传播行为"></a>Spring的事物传播行为</h2><p>事务传播⾏为是为了解决业务层⽅法之间互相调⽤的事务问题。当事务⽅法被另⼀个事务⽅法调⽤时，必须指定事 务应该如何传播。例如：⽅法可能继续在现有事务中运⾏，也可能开启⼀个新事务，并在⾃⼰的事务中运⾏。在 TransactionDefinition 定义中包括了如下⼏个表示传播⾏为的常量： ⽀持当前事务的情况： <strong>TransactionDefinition.PROPAGATION_REQUIRED</strong>：如果当前存在事务，则加⼊该事务；如果当前没有事务，则 创建⼀个新的事务； <strong>TransactionDefinition.PROPAGATION_SUPPORTS</strong>：如果当前存在事务，则加⼊该事务；如果当前没有事务，则 以⾮事务的⽅式继续运⾏； <strong>TransactionDefinition.PROPAGATION_MANDATORY</strong>：如果当前存在事务，则加⼊该事务；如果当前没有事务， 则抛出异常。 不⽀持当前事务的情况： <strong>TransactionDefinition.PROPAGATION_REQUIRES_NEW</strong>：创建⼀个新的事务，如果当前存在事务，则把当前事务 挂起； <strong>TransactionDefinition.PROPAGATION_NOT_SUPPORTED</strong>：以⾮事务⽅式运⾏，如果当前存在事务，则把当前事 务挂起。 TransactionDefinition.PROPAGATION_NEVER：以⾮事务⽅式运⾏，如果当前存在事务，则抛出异常。 其他情况： <strong>TransactionDefinition.PROPAGATION_NESTED</strong>：如果当前存在事务，则创建⼀个事务作为当前事务的嵌套事务 来运⾏；如果当前没有事务，则该取值等价于 TransactionDefinition.PROPAGATION_REQUIRED</p>
+<h2 id="循环依赖如何解决？"><a href="#循环依赖如何解决？" class="headerlink" title="循环依赖如何解决？"></a>循环依赖如何解决？</h2><h2 id="MVC执行流程"><a href="#MVC执行流程" class="headerlink" title="MVC执行流程"></a>MVC执行流程</h2><ol>
+<li>⽤户向服务器发送请求，请求被 Spring 前端控制Servelt DispatcherServlet 捕获； </li>
+<li>DispatcherServlet 对请求 URL 进⾏解析，得到请求资源标识符（URI）。然后根据该 URI，调⽤ HandlerMapping 获得该 Handler 配置的所有相关的对象（包括 Handler 对象以及 Handler 对象对应的拦截 器），最后以 HandlerExecutionChain 对象的形式返回； </li>
+<li>DispatcherServlet 根据获得的 Handler，选择⼀个合适的HandlerAdapter；（附注：如果成功获得 HandlerAdapter 后，此时将开始执⾏拦截器的 preHandler(…)⽅法） </li>
+<li>提取 Request 中的模型数据，填充 Handler ⼊参，开始执⾏Handler（Controller)。在填充 Handler 的⼊参 过程中，根据你的配置，Spring 将帮你做⼀些额外的⼯作： （1）HttpMessageConveter：将请求消息（如：Json、xml 等数据）转换成⼀个对象，将对象转换为指定的响应 信息； （2）数据转换：对请求消息进⾏数据转换。如：String 转换成 Integer、Double 等； （3）数据格式化：对请求消息进⾏数据格式化。如：将字符串转换成格式化数字或格式化⽇期等； （4）数据验证：验证数据的有效性（⻓度、格式等），验证结果存储到 BindingResult 或 Error 中; </li>
+<li>Handler 执⾏完成后，向 DispatcherServlet 返回⼀个 ModelAndView 对象； </li>
+<li>根据返回的 ModelAndView，选择⼀个适合的 ViewResolver（必须是已经注册到 Spring 容器中的 ViewResolver)返回给DispatcherServlet； </li>
+<li>ViewResolver 结合 Model 和 View，来渲染视图； </li>
+<li>将渲染结果返回给客户端。</li>
+</ol>
+<h2 id="MVC核心组件"><a href="#MVC核心组件" class="headerlink" title="MVC核心组件"></a>MVC核心组件</h2><ol>
+<li>前端控制器 DispatcherServlet 作⽤：Spring MVC 的⼊⼝函数。接收请求，响应结果，相当于转发器，中央处理器。有了 DispatcherServlet 减 少了其它组件之间的耦合度。⽤户请求到达前端控制器，它就相当于 MVC 模式中的 C，DispatcherServlet 是整个 流程控制的中⼼，由它调⽤其它组件处理⽤户的请求，DispatcherServlet 的存在降低了组件之间的耦合性。 </li>
+<li>处理器映射器 HandlerMapping 作⽤：根据请求的 url 查找 Handler。HandlerMapping 负责根据⽤户请求找到 Handler 即处理器 （Controller），SpringMVC 提供了不同的映射器实现不同的映射⽅式，例如：配置⽂件⽅式，实现接⼝⽅式，注 解⽅式等。 </li>
+<li>处理器适配器 HandlerAdapter 作⽤：按照特定规则（HandlerAdapter 要求的规则）去执⾏ Handler。通过 HandlerAdapter 对处理器进⾏执 ⾏，这是适配器模式的应⽤，通过扩展适配器可以对更多类型的处理器进⾏执⾏。</li>
+<li>处理器 Handler 注意：编写 Handler 时按照 HandlerAdapter 的要求去做，这样适配器才可以去正确执⾏ Handler。Handler 是继 DispatcherServlet 前端控制器的后端控制器，在 DispatcherServlet 的控制下 Handler 对具体的⽤户请求进⾏处 理。由于 Handler 涉及到具体的⽤户业务请求，所以⼀般情况需要⼯程师根据业务需求开发 Handler。 </li>
+<li>视图解析器 View resolver 作⽤：进⾏视图解析，根据逻辑视图名解析成真正的视图（View ）。View Resolver 负责将处理结果⽣成 View 视 图，View Resolver ⾸先根据逻辑视图名解析成物理视图名即具体的⻚⾯地址，再⽣成 View 视图对象，最后对 View 进⾏渲染将处理结果通过⻚⾯展示给⽤户。SpringMVC 框架提供了很多的 View 视图类型，包括：jstlView、 freemarkerView、pdfView 等。⼀般情况下需要通过⻚⾯标签或⻚⾯模版技术将模型数据通过⻚⾯展示给⽤户， 需要由⼯程师根据业务需求开发具体的⻚⾯。 </li>
+<li>视图 View View 是⼀个接⼝，实现类⽀持不同的 View 类型（jsp、freemarker…）。 注意：处理器 Handler（也就是我们平常说的 Controller 控制器）以及视图层 View 都是需要我们⾃⼰⼿动 开发的。其他的⼀些组件⽐如：前端控制器 DispatcherServlet、处理器映射器 HandlerMapping、处理器适 配器 HandlerAdapter 等等都是框架提供给我们的，不需要⾃⼰⼿动开发。</li>
+</ol>
+<h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><blockquote>
+<p>优点：</p>
+<ol>
+<li>简化spring配置，自动配置。</li>
+<li>内嵌各种容器，可以直接jar包启动</li>
+<li>通过starter封装各种配置</li>
+<li>避免了maven冲突</li>
+<li>提供了监控服务</li>
+</ol>
+<p>缺点：</p>
+<ol>
+<li>封装太多，排查问题麻烦点。</li>
+</ol>
+</blockquote>
+<h2 id="SpringBoot自动配置原理"><a href="#SpringBoot自动配置原理" class="headerlink" title="SpringBoot自动配置原理"></a>SpringBoot自动配置原理</h2><ol>
+<li>启动加载大量自动配置类</li>
+<li>检查需要的功能有没有在自动配置中</li>
+<li>可以通过properties文件添加组件</li>
+</ol>
+<h2 id="SpringBoot启动流程"><a href="#SpringBoot启动流程" class="headerlink" title="SpringBoot启动流程"></a>SpringBoot启动流程</h2><ol>
+<li>SpringBoot在启动的时候从类路径下的META-INF&#x2F;spring.factories中获取EnableAutoConfiguration指定的 值 </li>
+<li>将这些值作为⾃动配置类导⼊容器 ， ⾃动配置类就⽣效 ， 帮我们进⾏⾃动配置⼯作； </li>
+<li>整个J2EE的整体解决⽅案和⾃动配置都在springboot-autoconfigure的jar包中； </li>
+<li>它会给容器中导⼊⾮常多的⾃动配置类 （xxxAutoConfiguration）, 就是给容器中导⼊这个场景需要的所有组 件 ， 并配置好这些组件 ； 5. 有了⾃动配置类 ， 免去了我们⼿动编写配置注⼊功能组件等的⼯作；</li>
+</ol>
+<h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><h2 id="集成定时任务"><a href="#集成定时任务" class="headerlink" title="集成定时任务"></a>集成定时任务</h2><ol>
+<li>配置Quartz</li>
+<li>定义job和trigger即可</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://hideincode.github.io/2021/07/05/system/Spring/" title="Spring" target="_blank" rel="external">https://hideincode.github.io/2021/07/05/system/Spring/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/HideInCode" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/HideInCode" target="_blank"><span class="text-dark">HideInCode</span><small class="ml-1x">Backend</small></a></h3>
+        <div>后端玩家</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/10/24/system/Mysql/" title="MySQL"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/04/08/system/Redis/" title="Redis"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <!-- <img src="/" alt="Scan Qrcode" title="Scan" /> -->
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <!-- <img src="/" alt="Scan Qrcode" title="Scan" /> -->
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/HideInCode" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
