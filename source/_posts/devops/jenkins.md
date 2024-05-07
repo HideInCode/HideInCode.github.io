@@ -1,3 +1,14 @@
+---
+title: Jenkin安装
+date: 2018-09-06
+categories:
+- 开发部署
+tags:
+- devops
+---
+
+
+
 # Jenkins部署与使用
 
 1. 去官网下载war包，注意支持的Java版本[Jenkins官网](https://www.jenkins.io/zh/)

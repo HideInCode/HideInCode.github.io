@@ -1,10 +1,10 @@
 ---
-title: 设计模式
-date: 2024-05-07 01:45:50
+title: JDK中的源码
+date: 2020-09-07
 categories:
 - 源码分析
 tags:
-- design pattern
+- code
 ---
 
 # JDK

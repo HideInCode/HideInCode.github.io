@@ -1,4 +1,15 @@
-# Java虚拟机
+---
+title: JVM
+date: 2017-05-01
+categories:
+- 基础知识
+tags:
+- JVM
+---
+
+
+
+# JVM
 
 ## 组成部分
 

@@ -1,4 +1,15 @@
-# Mysql
+---
+title: MySQL
+date: 2021-10-24
+categories:
+- 系统设计
+tags:
+- system design
+---
+
+
+
+# MySQL
 
 > 伟大滴麦色可友，养活互联网企业的神器。
 

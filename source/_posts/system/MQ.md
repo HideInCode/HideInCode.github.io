@@ -1,3 +1,14 @@
+---
+title: 常见消息队列选型
+date: 2020-07-13
+categories:
+- 系统设计
+tags:
+- system design
+---
+
+
+
 # MQ
 
 > 当碰到需要解耦、异步、削峰问题时，那么就使用MQ吧。

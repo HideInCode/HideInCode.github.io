@@ -1,3 +1,14 @@
+---
+title: Redis
+date: 2021-04-08
+categories:
+- 系统设计
+tags:
+- system design
+---
+
+
+
 # Redis
 
 ## 数据类型

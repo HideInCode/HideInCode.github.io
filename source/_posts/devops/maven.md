@@ -1,3 +1,14 @@
+---
+title: Maven的一些问题
+date: 2018-10-02
+categories:
+- 开发部署
+tags:
+- devops
+---
+
+
+
 # Maven的一些问题
 
 ## 常见配置

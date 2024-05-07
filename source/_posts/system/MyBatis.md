@@ -1,3 +1,14 @@
+---
+title: Mybatis
+date: 2020-08-02
+categories:
+- 系统设计
+tags:
+- system design
+---
+
+
+
 # Mybatis
 
 > 1. 半自动ORM框架，对JDBC进行了封装。

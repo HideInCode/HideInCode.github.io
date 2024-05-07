@@ -1,6 +1,6 @@
 ---
-title: Docker部署
-date: 2024-05-07 01:45:50
+title: Docker部署一些组件
+date: 2023-05-07
 categories:
 - 开发部署
 tags:

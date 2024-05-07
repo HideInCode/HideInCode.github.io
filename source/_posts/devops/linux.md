@@ -1,3 +1,14 @@
+---
+title: Linux的玩法
+date: 2019-03-06
+categories:
+- 开发部署
+tags:
+- devops
+---
+
+
+
 # Linux命令
 
 查看端口

@@ -1,3 +1,14 @@
+---
+title: Nginx相关
+date: 2019-07-01
+categories:
+- 开发部署
+tags:
+- devops
+---
+
+
+
 # 安装部署
 
 ## docker下安装
