@@ -37,8 +37,8 @@ https://hideincode.github.io/repository/index.html
 https://hideincode.github.io/
 https://hideincode.github.io/tags/algo/
 https://hideincode.github.io/tags/JVM/
-https://hideincode.github.io/tags/threads-concurrent/
 https://hideincode.github.io/tags/safe/
+https://hideincode.github.io/tags/threads-concurrent/
 https://hideincode.github.io/tags/OS/
 https://hideincode.github.io/tags/socket/
 https://hideincode.github.io/tags/design-pattern/
