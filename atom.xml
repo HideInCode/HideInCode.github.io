@@ -86,7 +86,7 @@
     <link href="https://hideincode.github.io/2023/05/01/basic/%E5%B9%B6%E5%8F%91/"/>
     <id>https://hideincode.github.io/2023/05/01/basic/%E5%B9%B6%E5%8F%91/</id>
     <published>2023-04-30T16:00:00.000Z</published>
-    <updated>2024-05-07T09:02:32.756Z</updated>
+    <updated>2024-05-07T09:32:15.376Z</updated>
     
     
     
@@ -94,7 +94,9 @@
     <category term="基础知识" scheme="https://hideincode.github.io/categories/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     
-    <category term="threads, concurrent" scheme="https://hideincode.github.io/tags/threads-concurrent/"/>
+    <category term="threads" scheme="https://hideincode.github.io/tags/threads/"/>
+    
+    <category term="concurrent" scheme="https://hideincode.github.io/tags/concurrent/"/>
     
   </entry>
   
