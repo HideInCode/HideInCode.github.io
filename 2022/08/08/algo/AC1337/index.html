@@ -26,7 +26,7 @@
 <meta property="og:description" content="AC1337 用于记录刷题的一些思路和技巧  算法可行性   数据规模 算法可接受时间复杂度    &lt;&#x3D; 10 O(n!)   &lt;&#x3D; 20 O(2^n)   &lt;&#x3D; 100 O(n^4)   &lt;&#x3D; 500 O(n^3)   &lt;&#x3D; 2500 O(n^2)   &lt;&#x3D; 10^6 O(nlogn)   &lt;&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-07T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-07-13T07:33:31.905Z">
+<meta property="article:modified_time" content="2024-07-14T06:12:30.592Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="algo">
 <meta name="twitter:card" content="summary">
@@ -421,8 +421,7 @@
 <td>O(1)</td>
 </tr>
 </tbody></table>
-<h2 id="线型处理逻辑"><a href="#线型处理逻辑" class="headerlink" title="线型处理逻辑"></a>线型处理逻辑</h2><p>存储已知情况</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ul>
+<h2 id="线型逻辑"><a href="#线型逻辑" class="headerlink" title="线型逻辑"></a>线型逻辑</h2><h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ul>
 <li>单调栈：找出下一个更大的元素。</li>
 <li>成对出现的元素，用栈进行消消乐。</li>
 </ul>
@@ -430,7 +429,7 @@
 <li>单调队列：维护区间内最值</li>
 <li>优先队列</li>
 </ul>
-<h2 id="树型处理逻辑"><a href="#树型处理逻辑" class="headerlink" title="树型处理逻辑"></a>树型处理逻辑</h2><h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><h4 id="组合问题"><a href="#组合问题" class="headerlink" title="组合问题"></a>组合问题</h4><ol>
+<h2 id="树型逻辑"><a href="#树型逻辑" class="headerlink" title="树型逻辑"></a>树型逻辑</h2><h3 id="回溯"><a href="#回溯" class="headerlink" title="回溯"></a>回溯</h3><h4 id="组合问题"><a href="#组合问题" class="headerlink" title="组合问题"></a>组合问题</h4><ol>
 <li><p>无重复元素，可重复选择，组合出一个target; </p>
 <ul>
 <li>下一层起点为i，这样保证只会从当前元素后开始往后选。</li>
@@ -447,7 +446,7 @@
 <h4 id="排列问题"><a href="#排列问题" class="headerlink" title="排列问题"></a>排列问题</h4><ol>
 <li>无重复元素，所有排列情况;<ul>
 <li>朴素版本(记录决策树):<ul>
-<li>无需start，需要判断元素使用情况(visited数组&#x2F;基于无重复直接在容器里面判断)。</li>
+<li>无需start，需要visited标记。</li>
 </ul>
 </li>
 <li>进阶版本(交换元素):<ul>
@@ -480,7 +479,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="递归玩法"><a href="#递归玩法" class="headerlink" title="递归玩法"></a>递归玩法</h3><ul>
+<h3 id="递归思路"><a href="#递归思路" class="headerlink" title="递归思路"></a>递归思路</h3><ul>
 <li>定义状态</li>
 <li>做出选择</li>
 <li>缩小范围</li>
@@ -536,8 +535,18 @@
 </li>
 </ol>
 </li>
-<li><p>动态规划</p>
-<ul>
+<li><p>差分数组：解决频繁<strong>范围</strong>修改，但是不用频繁查询的问题。</p>
+<ol>
+<li>[i， j]范围内全部+1，使用额外数组<code>dif[i]+1</code>，<code>dif[j+1]-1</code>。</li>
+<li>用dif数组还原修改结果。</li>
+</ol>
+<p>不需要首项</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;diff。length;i++)&#123;</span><br><span class="line"> 	dif[i]+=dif[i-<span class="number">1</span>];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p> 需要首项</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dif[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line"> <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;diff.length;i++)&#123;</span><br><span class="line"> 	dif[i]=dif[i-<span class="number">1</span>]+nums[i];</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><ul>
 <li><p>前缀和:</p>
 <blockquote>
 <p>前缀和其实也是一种动态规划，拥有最优子结构，用于范围求和。而且前缀和中元素一般都是递增的，可以用二分搜索。</p>
@@ -563,186 +572,18 @@
 </li>
 <li><p>背包经典问题：方案个数、True&#x2F;False问题、最值问题</p>
 <ul>
-<li><pre><code class="python">        # 方案数
-        f[i] += f[i - num]
-        # True/False问题
-        f[i] = f[i] or f[i-num]
-        # 最值问题
-        f[i] = min(f[i], f[i-num]+1)
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">       + 01：先遍历物品，然后倒序容量</span><br><span class="line"></span><br><span class="line">       + 完全：先遍历物品，然后正序容量</span><br><span class="line"></span><br><span class="line">       + 排列：先遍历容量，然后正序物品</span><br><span class="line"></span><br><span class="line">   + 回文串问题</span><br><span class="line"></span><br><span class="line">8. 差分数组：解决频繁**范围**修改，但是不用频繁查询的问题。</span><br><span class="line"></span><br><span class="line">   1. [i， j]范围内全部+1，使用额外数组`dif[i]+1`，`dif[j+1]-1`。</span><br><span class="line">   2. 用dif数组还原修改结果。</span><br><span class="line"></span><br><span class="line">   &gt; 不需要首项</span><br><span class="line">   &gt;</span><br><span class="line">   &gt; ```java</span><br><span class="line">   &gt; for(int i=1;i&lt;diff。length;i++)&#123;</span><br><span class="line">   &gt; 	dif[i]+=dif[i-1];</span><br><span class="line">   &gt; &#125;</span><br></pre></td></tr></table></figure>
+<li><pre><code class="python">    # 方案数
+    f[i] += f[i - num]
+    # True/False问题
+    f[i] = f[i] or f[i-num]
+    # 最值问题
+    f[i] = min(f[i], f[i-num]+1)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    + 01：先遍历物品，然后倒序容量</span><br><span class="line"></span><br><span class="line">    + 完全：先遍历物品，然后正序容量</span><br><span class="line"></span><br><span class="line">    + 排列：先遍历容量，然后正序物品</span><br><span class="line"></span><br><span class="line">+ 回文串问题</span><br><span class="line"></span><br><span class="line">## 链表</span><br><span class="line"></span><br><span class="line">1. dummy节点简化代码。</span><br><span class="line">2. 快慢指针：</span><br><span class="line">   1. 环形链表</span><br><span class="line">   2. 两链表相交</span><br><span class="line">   3. 删除重复值</span><br><span class="line">3. 翻转链表：转化为基础的翻转链表。</span><br><span class="line"></span><br><span class="line">## 树</span><br><span class="line"></span><br><span class="line">1. DFS(先序，中序，后序，mirrors)，BFS</span><br><span class="line"></span><br><span class="line">2. 二叉搜索树的中序遍历是升序</span><br><span class="line"></span><br><span class="line">3. 数的直径，需要全局变量记录直径</span><br><span class="line"></span><br><span class="line">4. [公共祖先问题](https://leetcode-cn。com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/)</span><br><span class="line"></span><br><span class="line">5. 树的生成</span><br><span class="line"></span><br><span class="line">   &gt; + root.left=dfs(root.left)</span><br><span class="line">   &gt; + 分治生成，缩小区间生成新结点。</span><br><span class="line"></span><br><span class="line">​	6. 树上dp</span><br><span class="line"></span><br><span class="line">## 图</span><br><span class="line"></span><br><span class="line">1. 物理结构 ：邻接表、临界矩阵、边的数组、父结点数组、链式向前星。</span><br><span class="line">2. 求联通分量，并查集、dfs、tarjan、Kosaraju</span><br><span class="line">3. 找环：</span><br><span class="line">   1. dfs</span><br><span class="line">   2. bfs</span><br><span class="line">4. 拓扑排序：结点间有依赖关系</span><br><span class="line">   1. 必须是有向无环图(DAG)</span><br><span class="line">   2. DFS的逆后序，即把dfs的后序结果用栈保存起来。</span><br><span class="line">   3. BFS:把入度为0的先放入，然后遍历到一个结点就减少这个结点的入度。</span><br><span class="line">5. 最小生成树：</span><br><span class="line">   1. Prim：点按照已经生成的森林最近的距离加入树</span><br><span class="line">   2. Kruskal：边按照权重排序加入生成树</span><br><span class="line">6. 最短路：</span><br><span class="line">   1. 无权最短路：bfs</span><br><span class="line">   2. 非负权重最短路：Dijstra，理解松弛操作，就是bfs加了优先队列。</span><br><span class="line">   3. 负权重：Bellman-Ford，复杂度O(VE)</span><br><span class="line">7. 欧拉回路：一笔画问题</span><br><span class="line">8. 基环内向树：图中有环，环上有些节点会有分支，形成有一个有环的树。常见解法：</span><br><span class="line">   1. 用拓扑排序找出环</span><br><span class="line">   2. 判断节点是在链表上，还是在环上</span><br><span class="line">9. 二分图判定</span><br><span class="line">10. DFS 时间戳，即Tarjan相关算法。</span><br><span class="line"></span><br><span class="line">## 字符串</span><br><span class="line"></span><br><span class="line">+ 排序问题</span><br><span class="line">  + 计数排序 分组问题，通过组号分发到数组。</span><br><span class="line">  + 基数排序 </span><br><span class="line">    + LSD 定长字符串，从右往左排序。</span><br><span class="line">    + MSD 随机字符串，从左往右排序。</span><br><span class="line">  + 三向快排 处理有大量重复键的排序问题</span><br><span class="line">  + 常规比较排序</span><br><span class="line">+ 查询问题</span><br><span class="line">  + Trie(字典树，前缀树)</span><br><span class="line">+ 子串查找</span><br><span class="line">  + 暴力法</span><br><span class="line">  + 滑动窗口</span><br><span class="line">  + KMP 了解DFA</span><br><span class="line">  + BM</span><br><span class="line">  + RK</span><br><span class="line">+ 正则表达式 了解NFA</span><br><span class="line">+ 数据压缩 (数据都可以转成二进制，二进制流都可以理解为字符串)</span><br><span class="line">  + 双位压缩 对于DNA的4种碱基ACTG，可以用11 00 01 10 四种方式表达，但是只用两位。</span><br><span class="line">  + 游程编码(Run-Length Encoding) 首先转为二进制，将连续相同部分进行编码，如`0000000000000001111111000000011111111111`记成15个0，7个1，7个0，11个1，由于01交换出现，所以只对长度就行，把15 7 7 1改成二进制1111 0111 0111 1011，完成压缩。</span><br><span class="line">  + 霍夫曼(Huffman) 通过字符出现频率压缩</span><br><span class="line">  + LZW</span><br><span class="line"></span><br><span class="line">## 位运算</span><br><span class="line"></span><br><span class="line">+ a | b：并集</span><br><span class="line"></span><br><span class="line">+ a &amp; b： 交集，求a和b的最长公共前缀后面补齐0。如1010与1000得到1000</span><br><span class="line"></span><br><span class="line">+ a ^ b：不进位相加</span><br><span class="line"></span><br><span class="line">+ 汉明距离：x^(x-1) 最低位的1变成0。 如110 ^ (110 - 1)结果为100</span><br><span class="line"></span><br><span class="line">+ lowbit: x &amp; (-x) 截断x最低位的1及其后缀，必定是2的n次幂。 如1100 &amp; (-1100）时结果为100</span><br><span class="line"></span><br><span class="line">+ 求子集: 求k的二进制子集，针对中的二进制为1的位开始进行减法，判断数字k的二进制子集， 像枚举(2^k-1) ~ 0一样枚举其子集</span><br><span class="line"></span><br><span class="line">  ```java</span><br><span class="line">  int sub = k;</span><br><span class="line">  do &#123;</span><br><span class="line">      //sub就是一个子集</span><br><span class="line">      sub = (sub - 1) &amp; k;</span><br><span class="line">  &#125; while(sub != k);</span><br></pre></td></tr></table></figure>
 </code></pre>
 </li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<blockquote>
-<p>需要首项</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dif[<span class="number">0</span>]=nums[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;diff。length;i++)&#123;</span><br><span class="line">	dif[i]=dif[i-<span class="number">1</span>]+nums[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ol>
-<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><ol>
-<li>dummy节点简化代码。</li>
-<li>快慢指针：<ol>
-<li>环形链表</li>
-<li>两链表相交</li>
-<li>删除重复值</li>
-</ol>
-</li>
-<li>翻转链表：转化为基础的翻转链表。</li>
-</ol>
-<h2 id="树"><a href="#树" class="headerlink" title="树"></a>树</h2><blockquote>
-<p>这里指的是单纯的内存意义上的物理树，和逻辑树不同。</p>
-</blockquote>
-<ol>
-<li><p>DFS(先序，中序，后序，mirrors)，BFS</p>
-</li>
-<li><p>二叉搜索树的中序遍历是升序</p>
-</li>
-<li><p>数的直径</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/">公共祖先问题</a></p>
-</li>
-<li><p>树的生成</p>
-<blockquote>
-<ul>
-<li>插入操作基于代码模式 root。next&#x3D;f(root。next，。。。)</li>
-<li>一般分治而成，即找到根节点后把区间缩小，逐步生成</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<p>​	5。 树上dp</p>
-<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><ol>
-<li><p>物理结构 ：邻接表、临界矩阵、边的数组、父结点数组、链式向前星。</p>
-</li>
-<li><p>求联通分量，并查集、dfs、tarjan、Kosaraju</p>
-</li>
-<li><p>找环：</p>
-<ol>
-<li>dfs</li>
-<li>bfs</li>
-</ol>
-</li>
-<li><p>拓扑排序：依赖顺序问题</p>
-<ol>
-<li>必须是有向无环图(DAG)</li>
-<li>DFS的逆后序，即把dfs的后序结果用栈保存起来。</li>
-<li>BFS:把入度为0的先放入，然后遍历到一个结点就减少这个结点的入度。</li>
-</ol>
-</li>
-<li><p>最小生成树：</p>
-<ol>
-<li>Prim：点按照已经生成的森林最近的距离加入树</li>
-<li>Kruskal：边按照权重排序加入生成树</li>
-</ol>
-</li>
-<li><p>最短路：</p>
-<ol>
-<li>无权最短路：bfs</li>
-<li>非负权重最短路：Dijstra，理解松弛操作，就是bfs加了优先队列。</li>
-<li>负权重：Bellman-Ford，复杂度O(VE)</li>
-</ol>
-</li>
-<li><p>欧拉回路</p>
-</li>
-<li><p>基环内向树：图中有环，环上有些节点会有分支，形成有一个有环的树。常见解法：</p>
-<ol>
-<li>用拓扑排序找出环</li>
-<li>判断节点是在链表上，还是在环上</li>
-</ol>
-</li>
-<li><p>二分图判定</p>
-</li>
-<li><p>DFS 时间戳，即Tarjan相关算法。</p>
-</li>
-</ol>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><ul>
-<li>排序问题<ul>
-<li>计数排序 分组问题，通过组号分发到数组。</li>
-<li>基数排序 <ul>
-<li>LSD 定长字符串，从右往左排序。</li>
-<li>MSD 随机字符串，从左往右排序。</li>
-</ul>
-</li>
-<li>三向快排 处理有大量重复键的排序问题</li>
-<li>常规比较排序</li>
-</ul>
-</li>
-<li>查询问题<ul>
-<li>Trie(字典树，前缀树)</li>
-<li>Map</li>
-</ul>
-</li>
-<li>子串查找<ul>
-<li>暴力法</li>
-<li>滑动窗口</li>
-<li>KMP 了解DFA</li>
-<li>BM</li>
-<li>RK</li>
-</ul>
-</li>
-<li>正则表达式 了解NFA</li>
-<li>数据压缩 (数据都可以转成二进制，二进制流都可以理解为字符串)<ul>
-<li>双位压缩 对于DNA的4种碱基ACTG，可以用11 00 01 10 四种方式表达，但是只用两位。</li>
-<li>游程编码(Run-Length Encoding) 首先转为二进制，将连续相同部分进行编码，如<code>0000000000000001111111000000011111111111</code>记成15个0，7个1，7个0，11个1，由于01交换出现，所以只对长度就行，把15 7 7 1改成二进制1111 0111 0111 1011，完成压缩。</li>
-<li>霍夫曼(Huffman) 通过字符出现频率压缩</li>
-<li>LZW</li>
-</ul>
-</li>
-</ul>
-<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><ul>
-<li><p>a | b：计算并集</p>
-</li>
-<li><p>a &amp; b： 求a和b的最长公共前缀后面补齐0。如1010与1000得到1000</p>
-</li>
-<li><p>a ^ b：不进位相加</p>
-</li>
-<li><p>汉明距离：x^(x-1) 最低位的1变成0。 如110 ^ (100 - 1)结果为100</p>
-</li>
-<li><p>lowbit: x &amp; (-x) 截断x最低位的1及其后缀，必定是2的n次幂。 如1100 &amp; (-1100）时结果为100</p>
-</li>
-<li><p>求子集: 求k的二进制子集，针对中的二进制为1的位开始进行减法，判断数字k的二进制子集， 像枚举(2^k-1) ~ 0一样枚举其子集</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="variable">sub</span> <span class="operator">=</span> k;</span><br><span class="line"><span class="keyword">do</span> &#123;</span><br><span class="line">    <span class="comment">//sub就是一个子集</span></span><br><span class="line">    sub = (sub - <span class="number">1</span>) &amp; k;</span><br><span class="line">&#125; <span class="keyword">while</span>(sub != k);</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>去掉最后一位 | (101101-&gt;10110) | x &gt;&gt;1</p>
-</li>
-<li><p>在最后加一个0 | (101101-&gt;1011010) | x &lt;&lt;1 </p>
-</li>
-<li><p>在最后加一个1 | (101101-&gt;1011011) | x &lt;&lt; 1+1 </p>
-</li>
-<li><p>把最后一位变成1 | (101100-&gt;101101) | x or 1 </p>
-</li>
-<li><p>把最后一位变成0 | (101101-&gt;101100) | x or 1-1 </p>
-</li>
-<li><p>最后一位取反 | (101101-&gt;101100) | x xor 1 </p>
-</li>
-<li><p>把右数第k位变成1 | (101001-&gt;101101，k&#x3D;3) | x or (1 &lt;&lt; (k-1)) </p>
-</li>
-<li><p>把右数第k位变成0 | (101101-&gt;101001，k&#x3D;3) | x and not(1 &lt;&lt; (k-1)) </p>
-</li>
-<li><p>右数第k位取反 | (101001-&gt;101101，k&#x3D;3) | x xor (1 &lt;&lt; (k-1)) </p>
-</li>
-<li><p>取末三位 | (1101101-&gt;101) | x and 7 </p>
-</li>
-<li><p>取末k位 | (1101101-&gt;1101，k&#x3D;5) | x and (1 &lt;&lt; k-1) </p>
-</li>
-<li><p>取右数第k位 | (1101101-&gt;1，k&#x3D;4) | x &gt;&gt; (k-1) and 1 </p>
-</li>
-<li><p>把末k位变成1 | (101001-&gt;101111，k&#x3D;4) | x or (1 &lt;&lt; k-1) </p>
-</li>
-<li><p>末k位取反 | (101001-&gt;100110，k&#x3D;4) | x xor (1 &lt;&lt; k-1) </p>
-</li>
-<li><p>把右边连续的1变成0 | (100101111-&gt;100100000) | x and (x+1) </p>
-</li>
-<li><p>把右起第一个0变成1 | (100101111-&gt;100111111) | x or (x+1) </p>
-</li>
-<li><p>把右边连续的0变成1 | (11011000-&gt;11011111) | x or (x-1) </p>
-</li>
-<li><p>取右边连续的1 | (100101111-&gt;1111) | (x xor (x+1)) &gt;&gt; 1</p>
 </li>
 </ul>
 <h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><h3 id="数论"><a href="#数论" class="headerlink" title="数论"></a>数论</h3><h4 id="MOD运算"><a href="#MOD运算" class="headerlink" title="MOD运算"></a>MOD运算</h4><ul>
